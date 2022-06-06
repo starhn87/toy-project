@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import emotionReset from "emotion-reset";
 import { Global } from "@emotion/react";
+import { RecoilRoot } from "recoil";
 
 const GlobalStyles = css`
   ${emotionReset}
@@ -43,7 +44,9 @@ root.render(
   <React.StrictMode>
     <>
       <Global styles={GlobalStyles} />
-      <App />
+      <RecoilRoot>
+        <App />
+      </RecoilRoot>
     </>
   </React.StrictMode>
 );

@@ -4,7 +4,6 @@ import { LoginProps } from "./Login";
 
 export default function Logout({ setIsLoggedIn }: LoginProps) {
   const onSuccess = () => {
-    alert("Logout successfully!");
     setIsLoggedIn(false);
   };
 

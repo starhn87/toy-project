@@ -11,12 +11,12 @@ export interface LoginProps {
 
 export default function Login({ setIsLoggedIn }: LoginProps) {
   const onSuccess = (res: GoogleLoginResponse | GoogleLoginResponseOffline) => {
-    console.log(res);
+    localStorage.setItem("token", (res as GoogleLoginResponse).accessToken);
     setIsLoggedIn(true);
   };
 
   const onFailure = (res: GoogleLogoutProps) => {
-    console.log(res);
+    localStorage.removeItem("token");
   };
 
   return (
