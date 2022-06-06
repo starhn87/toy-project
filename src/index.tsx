@@ -1,19 +1,49 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { css } from "@emotion/css";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import emotionReset from "emotion-reset";
+import { Global } from "@emotion/react";
+
+const GlobalStyles = css`
+  ${emotionReset}
+
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: NanumGothic;
+    font-size: 12px;
+    background-color: rgba(20, 20, 20, 1);
+    color: white;
+    padding-top: 50px;
+  }
+  button {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  #root {
+    overflow: hidden;
+  }
+`;
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <>
+      <Global styles={GlobalStyles} />
+      <App />
+    </>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
